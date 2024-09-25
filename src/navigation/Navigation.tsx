@@ -4,6 +4,9 @@ import { navigationRef } from "../utils/NavigationUtil";
 import { useCustomTheme } from "./Theme";
 import MainNavigator from "./MainNavigator";
 import NoInternet from "../components/global/NoInternet";
+import Toast from "react-native-toast-message";
+import { toastConfig } from "../utils/ToastConfig";
+import { hpx } from "../utils/Scaling";
 
 const Navigation: React.FC = () => {
   const theme = useCustomTheme();
@@ -24,6 +27,12 @@ const Navigation: React.FC = () => {
     <NavigationContainer ref={navigationRef} theme={MyTheme}>
       <MainNavigator />
       <NoInternet />
+      <Toast
+        visibilityTime={2500}
+        config={toastConfig}
+        topOffset={hpx(100)}
+        position="top"
+      />
     </NavigationContainer>
   );
 };

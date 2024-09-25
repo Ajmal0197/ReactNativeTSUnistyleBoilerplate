@@ -3,7 +3,6 @@ import { StyleSheet, View, Animated, Platform } from "react-native";
 import CustomText from "./CustomText";
 import { Colors } from "../../constants/Colors";
 import { FONTS } from "../../constants/Fonts";
-import Icon from "react-native-vector-icons/Ionicons";
 
 interface Props {
   type: string;

@@ -4,6 +4,7 @@ import { createStyleSheet, mq, UnistylesRuntime, useStyles } from 'react-native-
 import { storage } from '../../redux/storage';
 import CustomText from '../../components/global/CustomText';
 import { FONTS } from '../../constants/Fonts';
+import Toast from 'react-native-toast-message';
 
 const LoginScreen = () => {
 
@@ -49,6 +50,10 @@ const LoginScreen = () => {
         Selected theme is {UnistylesRuntime.themeName}
       </Text>
       <Button title="Change theme" onPress={() => {
+        Toast.show({
+          type: "successToast",
+          props: { msg: 'Dark Mode Set' },
+        });
         UnistylesRuntime.setTheme('dark'),
           storage.set('app_theme', 'dark')
       }} />
