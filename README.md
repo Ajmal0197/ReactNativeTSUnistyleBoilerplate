@@ -1,3 +1,5 @@
+ReactNativeTSUnistyleBoilerplate is a starter template designed for building React Native applications with TypeScript and Unistyle for streamlined, theme-based styling. This boilerplate integrates Unistyle to manage global styles, dynamic theming, and responsive designs efficiently, making it easier for developers to maintain a clean and scalable codebase. With TypeScript support, it ensures type safety and improved developer experience, while Unistyle provides a utility-first approach to styling, allowing for seamless theme management and platform-specific customizations. Ideal for projects requiring robust styling solutions, this boilerplate accelerates development with a well-structured, scalable foundation.
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
