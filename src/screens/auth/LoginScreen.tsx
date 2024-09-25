@@ -67,7 +67,9 @@ const LoginScreen = () => {
       }} />
 
       <View style={styles.boxesWrapper}>
-        <View style={styles.boxDynamic}><Text>Breakpoint/Orientation/MediaQuery</Text></View>
+        <View style={styles.boxBreakPoint}><Text>Breakpoint</Text></View>
+        <View style={styles.boxBreakOrientation}><Text>Orientation</Text></View>
+        <View style={styles.boxBreakMediaQuery}><Text>MediaQuery</Text></View>
         <View style={styles.boxVariant}><Text>Variant</Text></View>
       </View>
     </View>
@@ -80,7 +82,11 @@ const stylesheet = createStyleSheet((theme, rt) => ({
     justifyContent: "space-evenly",
     alignItems: 'center',
     backgroundColor: theme.colors.background,
-    marginTop: rt.insets.top, // eg. 42
+    // backgroundColor: {landscape/portrait This only works in mobile app when breakpoint is not defined
+    //   landscape: theme.colors.background,
+    //   portrait: theme.colors.warning
+    // },
+    marginTop: UnistylesRuntime.insets.top, // eg. 42
     marginBottom: rt.insets.bottom, // eg. 24
     marginLeft: rt.insets.left, // eg. 0
     marginRight: rt.insets.right, // eg. 0
@@ -96,22 +102,31 @@ const stylesheet = createStyleSheet((theme, rt) => ({
     alignItems: 'center',
     flexDirection: rt.orientation === 'landscape' ? 'row' : 'column',
   },
-
-  boxDynamic: {
-    height: 150,
-    width: 150,
+  boxBreakPoint: {
+    height: 50,
+    width: 50,
     backgroundColor: {
-      xs: 'yellow',
-      sm: "green",
-      landscape: 'red',
-      portrait: "blue",
+      xs: 'pink',
+      sm: "skyblue",
+    }
+  },
+  boxBreakOrientation: {
+    height: 50,
+    width: 50,
+    // backgroundColor: 'red'
+    backgroundColor: rt.orientation === 'landscape' ? 'green' : 'yellow',
+  },
+  boxBreakMediaQuery: {
+    height: 50,
+    width: 50,
+    backgroundColor: {
       [mq.only.height(300, 500)]: 'purple',
-      [mq.only.height(500)]: 'orange',
+      [mq.only.height(500)]: 'darkblue',
     }
   },
   boxVariant: {
-    height: 100,
-    width: 100,
+    borderRadius: 20,
+    padding: theme.margins.lg,
     variants: {
       color: {
         true: {
@@ -127,8 +142,8 @@ const stylesheet = createStyleSheet((theme, rt) => ({
           height: 100
         },
         medium: {
-          width: 120,
-          height: 120
+          height: rt.screen.height / 7,
+          width: rt.screen.width / 4,
         },
         large: {
           width: 150,
